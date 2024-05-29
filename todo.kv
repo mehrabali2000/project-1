@@ -1,0 +1,74 @@
+
+Interface:
+    canvas.before:
+        Color:
+            rgba:0.5,0.5,1,0.5
+
+        Rectangle:
+            pos:self.pos
+            size:self.size
+    Screen:
+        
+        name:"Main Screen"
+        BoxLayout:
+            orientation:'vertical'
+            padding: '10dp'
+            spacing: '30dp'
+            Label:
+                markup:True
+                font_name: 'luci_font.ttf'
+                text:'To-Do App\n[size=12]developed by Mehrab Ibrahimi[/size]'
+                font_size: '32sp'
+                size_hint: 1,None
+                height: dp(50)
+
+            ScrollView:
+                do_scroll_y:True
+                GridLayout:
+                    id:gridlayout
+                    cols:1
+                    spacing:dp(10)
+                    size_hint_y:None
+                    height:self.minimum_height
+                    BoxLayout:
+                        size_hint_y:None
+                        height:dp(40)
+                        
+
+            Button:
+                background_color:"lightgreen"
+                font_name:"demiItalic.ttf"
+                text:'Add'
+                size_hint: 1,None
+                height:dp(60)
+                on_press: root.show_popup()
+    Screen:
+        canvas.before:
+            Color:
+                rgba:0.7,0.5,0.3,1
+
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        name:"Details Screen"
+        BoxLayout:
+            orientation:'vertical'
+            padding:dp(10)
+            spacing:dp(10)
+            Label:
+                font_name: 'luci_font.ttf'
+                id:Notice_title
+                text:"Notice"
+                size_hint_y:None
+                height:dp(80)
+            TextInput:
+                id:input_data
+                hint_text:'Information'
+            Button:
+                
+                background_color: [0.2,0.5,0.3,1]
+                font_name:"demiItalic.ttf"
+                text:'Back'
+                size_hint_y:None
+                height:dp(80)
+                on_press:root.back_btn()
